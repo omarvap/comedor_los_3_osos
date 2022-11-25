@@ -26,6 +26,7 @@ def orden_menu():
 @app.route("/usuario")
 def usuario():
     return render_template("usuario.html")
+    
 @app.route("/rol")
 def rol():
     return render_template("rol.html")
