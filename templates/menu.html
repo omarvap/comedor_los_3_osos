@@ -3,136 +3,47 @@
 {% block contenido %}
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4">
-            <div class="dropdown">
-
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown">
-                    Action
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another
-                        action</a> <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
-            <form role="form">
-                <div class="form-group">
-
-                    <label for="exampleInputEmail1">
-                        Email address
-                    </label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" />
-                </div>
-                <div class="form-group">
-
-                    <label for="exampleInputPassword1">
-                        Password
-                    </label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" />
-                </div>
-                <div class="form-group">
-
-                    <label for="exampleInputFile">
-                        File input
-                    </label>
-                    <input type="file" class="form-control-file" id="exampleInputFile" />
-                    <p class="help-block">
-                        Example block-level help text here.
-                    </p>
-                </div>
-                <div class="checkbox">
-
-                    <label>
-                        <input type="checkbox" /> Check me out
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-primary">
-                    Submit
-                </button>
-            </form>
-        </div>
-        <div class="col-md-4">
-            <form role="form">
-                <div class="form-group">
-
-                    <label for="exampleInputEmail1">
-                        Email address
-                    </label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" />
-                </div>
-                <div class="form-group">
-
-                    <label for="exampleInputPassword1">
-                        Password
-                    </label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" />
-                </div>
-                <div class="form-group">
-
-                    <label for="exampleInputFile">
-                        File input
-                    </label>
-                    <input type="file" class="form-control-file" id="exampleInputFile" />
-                    <p class="help-block">
-                        Example block-level help text here.
-                    </p>
-                </div>
-                <div class="checkbox">
-
-                    <label>
-                        <input type="checkbox" /> Check me out
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-primary">
-                    Submit
-                </button>
-            </form>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
 	<div class="row">
-		<div class="col-md-4">
-			<img alt="Bootstrap Image Preview" src="../static/img/images.jpg"/>
-		</div>
-		<div class="col-md-4">
-			<h3>
-				h3. Lorem ipsum dolor sit amet.
+		<div class="col-md-6 col-md-6 bg-secondary rounded p-4" style="width: 45%;margin: 10px;">
+			<h3 class="text-center">
+			     Datos del Menú.
 			</h3>
-			<dl>
-				<dt>
-					Description lists
-				</dt>
-				<dd>
-					A description list is perfect for defining terms.
-				</dd>
-				<dt>
-					Euismod
-				</dt>
-				<dd>
-					Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
-				</dd>
-				<dd>
-					Donec id elit non mi porta gravida at eget metus.
-				</dd>
-				<dt>
-					Malesuada porta
-				</dt>
-				<dd>
-					Etiam porta sem malesuada magna mollis euismod.
-				</dd>
-				<dt>
-					Felis euismod semper eget lacinia
-				</dt>
-				<dd>
-					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-				</dd>
-			</dl>
+			<form role="form">
+				<div class="form-group">
+
+					<label for="m_nombre">
+						Nombre.
+					</label>
+					<input type="Nombre" class="form-control" id="nmenu" />
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<select name="select" class="btn btn-primary" style="margin-top: 15px;">
+							<option selected>Elija una opcion</option>
+							<option value="activo">Activo</option>
+							<option value="inactivo">Inactivo</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+
+					<label for="m_descripcion">
+						Descripción.
+					</label>
+					<input type="Descripcion" class="form-control" id="dmenu" />
+				</div>
+
+				<button type="submit" class="btn btn-primary" style="margin-top: 15px;">
+					Guardar
+				</button>
+			</form>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-6 bg-secondary text-center rounded p-4" style="width: 45%; margin: 10px;">
+			<h3 class="text-center">
+			    Registros del Menú.
+			</h3>
 			<table class="table">
 				<thead>
 					<tr>
@@ -140,88 +51,15 @@
 							#
 						</th>
 						<th>
-							Product
+							Nombre.
 						</th>
 						<th>
-							Payment Taken
+							Estado.
 						</th>
 						<th>
-							Status
-						</th>
+							Descripción.
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Default
-						</td>
-					</tr>
-					<tr class="table-active">
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Approved
-						</td>
-					</tr>
-					<tr class="table-success">
-						<td>
-							2
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							02/04/2012
-						</td>
-						<td>
-							Declined
-						</td>
-					</tr>
-					<tr class="table-warning">
-						<td>
-							3
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							03/04/2012
-						</td>
-						<td>
-							Pending
-						</td>
-					</tr>
-					<tr class="table-danger">
-						<td>
-							4
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							04/04/2012
-						</td>
-						<td>
-							Call in to confirm
-						</td>
-					</tr>
-				</tbody>
 			</table>
 		</div>
 	</div>
