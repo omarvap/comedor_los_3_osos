@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-6 col-md-6 bg-secondary rounded p-4" style="width: 45%;margin: 10px;">
+		<div class="col-md-6 col-md-6 bg-secondary rounded p-4" style="width: 45%;margin: 8px;">
 			<h3 class="text-center">
 			     Datos del Menú.
 			</h3>
@@ -14,8 +14,28 @@
 					<label for="m_nombre">
 						Nombre.
 					</label>
-					<input type="Nombre" class="form-control" id="nmenu" />
+					<input type="Nombre" class="form-control" id="nmenu" style="width: 70%;" />
 				</div>
+
+
+				<div class="form-group">
+
+					<label for="m_refresco">
+						Refresco.
+					</label>
+					<input type="Refresco" class="form-control" id="rmenu" style="width: 70%;"/>
+				</div>
+
+                <div class="row1">
+					<div class="col-md-12">
+						<select name="select" class="btn btn-primary" style="margin-top: 15px;">
+							<option selected>Categoria</option>
+							<option value="gaseosa">Gaseosa</option>
+							<option value="nartural">Natural</option>
+						</select>
+					</div>
+				</div>
+
 
 				<div class="row">
 					<div class="col-md-12">
@@ -32,15 +52,32 @@
 					<label for="m_descripcion">
 						Descripción.
 					</label>
-					<input type="Descripcion" class="form-control" id="dmenu" />
+					<input type="Descripcion" class="form-control" id="dmenu" style="width: 70%;"/>
 				</div>
 
-				<button type="submit" class="btn btn-primary" style="margin-top: 15px;">
+				<div class="form-group">
+
+					<label for="exampleInputFile">
+						entrada de archivo
+					</label>
+					<input type="file" class="form-control-file" id="exampleInputFile" />
+
+				</div>
+
+				<div class="checkbox">
+						<label>
+					    	<input type="checkbox" />
+					    	Me echa un vistazo
+						</label>
+				</div>
+
+				<button type="submit" class="btn btn-primary" style="margin-top: 10px;">
 					Guardar
 				</button>
 			</form>
 		</div>
-		<div class="col-md-6 bg-secondary text-center rounded p-4" style="width: 45%; margin: 10px;">
+
+		<div class="col-md-6 bg-secondary text-center rounded p-4" style="width: 45%; margin: 15px;">
 			<h3 class="text-center">
 			    Registros del Menú.
 			</h3>
@@ -54,10 +91,21 @@
 							Nombre.
 						</th>
 						<th>
-							Estado.
+							Refresco.
 						</th>
 						<th>
+							Categoria.
+						</th>
+						<th>
+							Estado.
+						</th>
+
+						<th>
 							Descripción.
+						</th>
+						<th>
+							Imagen.
+						</th>
 					</tr>
 				</thead>
 			</table>

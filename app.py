@@ -5,7 +5,7 @@ from cs50 import SQL
 
 app = Flask(__name__)
 
-db = SQL("sqlite:///database.db")
+db = SQL("sqlite:///comedor.db")
 
 @app.route("/")
 def index():
@@ -26,7 +26,7 @@ def orden_menu():
 @app.route("/usuario")
 def usuario():
     return render_template("usuario.html")
-    
+
 @app.route("/rol")
 def rol():
     return render_template("rol.html")
