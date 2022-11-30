@@ -5,15 +5,23 @@ from cs50 import SQL
 
 app = Flask(__name__)
 
-db = SQL("sqlite:///database.db")
+db = SQL("sqlite:///comedor.db")
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
 @app.route("/menu")
-def Menu():
+def menu():
     return render_template("menu.html")
+
+@app.route("/dia")
+def dia():
+    return render_template("dia.html")
+
+@app.route("/orden_dia")
+def orden_dia():
+    return render_template("orden_dia.html")
 
 @app.route("/solicitado")
 def solocitado():
@@ -26,7 +34,7 @@ def orden_menu():
 @app.route("/usuario")
 def usuario():
     return render_template("usuario.html")
-    
+
 @app.route("/rol")
 def rol():
     return render_template("rol.html")

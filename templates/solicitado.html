@@ -1,5 +1,26 @@
 {% extends 'layout.html' %}
 
 {% block contenido %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Menú Normal</h6>
 
+                </div>
+                <canvas id="worldwide-sales" width="505" height="252" style="display: block; box-sizing: border-box; height: 252px; width: 505px;"></canvas>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Menú del Dia</h6>
+
+                </div>
+                <canvas id="salse-revenue" width="505" height="252" style="display: block; box-sizing: border-box; height: 252px; width: 505px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
