@@ -12,8 +12,16 @@ def index():
     return render_template("index.html")
 
 @app.route("/menu")
-def Menu():
+def menu():
     return render_template("menu.html")
+
+@app.route("/dia")
+def dia():
+    return render_template("dia.html")
+
+@app.route("/orden_dia")
+def orden_dia():
+    return render_template("orden_dia.html")
 
 @app.route("/solicitado")
 def solocitado():
