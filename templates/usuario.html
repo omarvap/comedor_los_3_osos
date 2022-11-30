@@ -2,4 +2,89 @@
 
 {% block contenido %}
 
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 col-md-6 bg-secondary rounded p-4" style="width: 45%;margin: 10px;">
+			<h3 class="text-center">
+			     Datos generales.
+			</h3>
+			<form role="form">
+				<div class="form-group">
+    
+					<label for="p_nombre">
+						Nombre completo.
+					</label>
+					<input type="Nombre" class="form-control" id="nombre" />
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12">
+						<select name="select" class="btn btn-primary" style="margin-top: 15px;">
+							<option selected>Elija una opción</option>
+							<option value="#"></option>
+							<option value="#"></option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+
+					<label for="p_apellido">
+						Apellido completo.
+					</label>
+					<input type="Apellido" class="form-control" id="apellido" />
+				</div>
+				<div class="form-group">
+
+					<label for="p_direccion">
+						Dirección completa.
+					</label>
+					<input type="Direccion" class="form-control" id="direccion" />
+				</div>
+				<div class="form-group">
+
+					<label for="p_telefono">
+						Telefono.
+					</label>
+					<input type="Telefono" class="form-control" id="telefono" />
+				</div>
+				<div class="form-group">
+
+					<label for="p_correo">
+						Correo completo.
+					</label>
+					<input type="Correo" class="form-control" id="correo" />
+				</div>
+				<button type="submit" class="btn btn-primary" style="margin-top: 15px;">
+					Guardar
+				</button>
+			</form>
+		</div>
+
+		<div class="bg-secondary text-center rounded p-4" style="width: 45%; margin: 8px;">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Registro de la Persona. </font></font></h6>
+            <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mostrar todo</font></font></a>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-white">
+                        <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nombre.</font></font></th>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apellido.</font></font></th>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dirección.</font></font></th>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Telefono.</font></font></th>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Correo.</font></font></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+	</div>
+</div>
+
 {% endblock %}
