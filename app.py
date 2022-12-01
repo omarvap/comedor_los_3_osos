@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from cs50 import SQL
 
 
@@ -47,9 +47,18 @@ def cliente():
 def empleado():
     return render_template("empleado.html")
 
-@app.route("/persona")
+@app.route("/persona", methods=["GET", "POST"])
 def persona():
-    return render_template("persona.html")
+    if request.method == "POST":
+        # Estos son los datos para poder registrarse
+        nombre = request.form.get("Nombre_pers")
+        apellido = request.form.get("Ape_pers")
+        direccion = request.form.get("Dic_pers")
+        telefono = request.form.get("Tel_pers")
+        correo = request.form.get("Cor_pers")
+        print(nombre, apellido, direccion, telefono, correo)
+    else:
+        return render_template("persona.html")
 
 @app.route("/problema")
 def problema():

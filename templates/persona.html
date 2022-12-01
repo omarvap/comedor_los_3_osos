@@ -6,41 +6,41 @@
 			<h3 class="text-center">
 			     Datos generales.
 			</h3>
-			<form role="form">
+			<form role="form" method="POST" action="/persona">
 				<div class="form-group">
 
 					<label for="p_nombre">
 						Nombre completo.
 					</label>
-					<input type="Nombre" class="form-control" id="nombre" />
+					<input type="Nombre" class="form-control" id="nombre" name ="Nombre_pers"/>
 				</div>
 				<div class="form-group">
 
 					<label for="p_apellido">
 						Apellido completo.
 					</label>
-					<input type="Apellido" class="form-control" id="apellido" />
+					<input type="Apellido" class="form-control" id="apellido" name="Ape_pers"/>
 				</div>
 				<div class="form-group">
 
 					<label for="p_direccion">
 						Dirección completa.
 					</label>
-					<input type="Direccion" class="form-control" id="direccion" />
+					<input type="Direccion" class="form-control" id="direccion" name = "Dic_pers"/>
 				</div>
 				<div class="form-group">
 
 					<label for="p_telefono">
 						Telefono.
 					</label>
-					<input type="Telefono" class="form-control" id="telefono" />
+					<input type="Telefono" class="form-control" id="telefono" name = "Tel_pers"/>
 				</div>
 				<div class="form-group">
 
 					<label for="p_correo">
 						Correo completo.
 					</label>
-					<input type="Correo" class="form-control" id="correo" />
+					<input type="Correo" class="form-control" id="correo" name ="Cor_pers"/>
 				</div>
 				<button type="submit" class="btn btn-primary" style="margin-top: 15px;">
 					Guardar
