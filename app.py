@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from cs50 import SQL
 
 
@@ -27,25 +27,68 @@ def orden_dia():
 def solocitado():
     return render_template("solicitado.html")
 
-@app.route("/orden_menu")
+@app.route("/orden_menu", methods=["GET", "POST"])
 def orden_menu():
-    return render_template("orden_menu.html")
+    if request.method == "POST":
+        # Estos son los datos para poder registrarse
+        menu = request.form.get("id_menu")
+        empleado = request.form.get("id_empleado")
+        cliente = request.form.get("id_cliente")
+        cantidad = request.form.get("Cant_pedida")
+        print(menu, empleado, cliente, cantidad)
+        return render_template("orden_menu.html")
+    else:
+        return render_template("orden_menu.html")
 
-@app.route("/usuario")
+@app.route("/usuario", methods=["GET", "POST"])
 def usuario():
-    return render_template("usuario.html")
+    if request.method == "POST":
+        # Estos son los datos para poder registrarse
+        registro = request.form.get("id_emp")
+        usuario = request.form.get("username")
+        contraseña = request.form.get("pass")
+        #db.execute("INSERT INTO empleado (id_pers) values(:registro)", registro=registro )
+        db.execute("INSERT INTO usuario(id_emp,username, pass) values(?,?,?)",registro,usuario,contraseña)
+        return redirect("/usuario")
+
+    else:
+        vista = db.execute("SELECT * FROM usuario")
+        print(vista)
+        usuario = db.execute("SELECT *FROM empleado")
+        return render_template("usuario.html",usuario=usuario, vista=vista)
+
+
 
 @app.route("/rol")
 def rol():
     return render_template("rol.html")
 
-@app.route("/clientes")
+@app.route("/clientes", methods=["GET", "POST"])
 def cliente():
-    return render_template("clientes.html")
+    if request.method == "POST":
+        # Estos son los datos para poder registrarse
+        registro = request.form.get("id_pers")
+        db.execute("INSERT INTO clientes (id_pers) values(:registro)", registro=registro )
+        return redirect("/clientes")
+    else:
+        vista = db.execute("SELECT *FROM persona INNER JOIN clientes ON clientes.id_pers=persona.id")
+        print(vista)
+        clientes = db.execute("SELECT *FROM persona")
+        return render_template("clientes.html", clientes=clientes, vista=vista)
 
-@app.route("/empleado")
+
+@app.route("/empleado", methods=["GET", "POST"])
 def empleado():
-    return render_template("empleado.html")
+    if request.method == "POST":
+        # Estos son los datos para poder registrarse
+        registro = request.form.get("id_pers")
+        db.execute("INSERT INTO empleado (id_pers) values(:registro)", registro=registro )
+        return redirect("/empleado")
+    else:
+        vista = db.execute("SELECT *FROM persona INNER JOIN empleado ON empleado.id_pers=persona.id")
+        print(vista)
+        empleado = db.execute("SELECT *FROM persona")
+        return render_template("empleado.html", empleado=empleado, vista=vista)
 
 @app.route("/persona", methods=["GET", "POST"])
 def persona():
@@ -57,8 +100,21 @@ def persona():
         telefono = request.form.get("Tel_pers")
         correo = request.form.get("Cor_pers")
         print(nombre, apellido, direccion, telefono, correo)
+
+        db.execute("INSERT INTO persona(Nombre_pers, Ape_pers, Dic_pers, Tel_pers, Cor_pers) values(?,?,?,?,?)",nombre,apellido,direccion,telefono,correo)
+        return redirect("/persona")
     else:
-        return render_template("persona.html")
+        vista = db.execute("SELECT * FROM persona")
+        print(vista)
+        return render_template("persona.html",vista=vista)
+
+@app.route("/persona_eliminar/<id>", methods=["GET", "POST"])
+def persona_eliminar(id):
+    print("hola", id)
+    db.execute("DELETE FROM persona WHERE id = :id",id=id)
+    return redirect("/persona")
+
+
 
 @app.route("/problema")
 def problema():

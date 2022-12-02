@@ -2,7 +2,7 @@
 {% block contenido %}
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-6 col-md-6 bg-secondary rounded p-4" style="width: 45%;margin: 10px;">
+		<div class="col-md-6 col-md-6 bg-secondary rounded p-4" style="width: 35%;margin: 10px;">
 			<h3 class="text-center">
 			     Datos generales.
 			</h3>
@@ -48,7 +48,7 @@
 			</form>
 		</div>
 
-		<div class="bg-secondary text-center rounded p-4" style="width: 45%; margin: 8px;">
+		<div class="bg-secondary text-center rounded p-4" style="width: 60%; margin: 8px;">
         <div class="d-flex align-items-center justify-content-between mb-4">
             <h6 class="mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Registro de la Persona. </font></font></h6>
             <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mostrar todo</font></font></a>
@@ -66,7 +66,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                	{% for vista in vista %}
+						<tr>
+						  <th><a class="form-check-input" type="submit" href="/persona_eliminar/{{ vista.id }}"><i class="fa-solid fa-trash-can"></i></a></th>
+						  <th>{{vista.Nombre_pers}}</th>
+						  <th>{{vista.Ape_pers}}</th>
+						  <th>{{vista.Dic_pers}}</th>
+						  <th>{{vista.Tel_pers}}</th>
+						  <th>{{vista.Cor_pers}}</th>
+						</tr>
 
+						{% endfor %}
                 </tbody>
             </table>
         </div>

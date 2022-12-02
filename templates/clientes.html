@@ -4,18 +4,19 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-6 col-md-6 bg-secondary rounded p-4" style="width: 45%;margin: 8px;">
+		<div class="col-md-6 col-md-6 bg-secondary rounded p-4" style="width: 35%;margin: 8px;">
 			<h3 class="text-center">
 			     Registro del cliente.
 			</h3>
-			<form role="form">
+			<form role="form" method="POST" action="/clientes">
 
                 <div class="row1">
 					<div class="col-md-12">
-						<select name="select" class="btn btn-primary" style="margin-top: 15px;">
+						<select name="id_pers" class="btn btn-primary" style="margin-top: 15px;">
 							<option selected>Elija una opción</option>
-							<option value="#"></option>
-							<option value="#"></option>
+								{% for clientes in clientes %}
+								<option value="{{clientes.id}}">{{clientes.id}}</option>
+							{% endfor %}
 						</select>
 					</div>
 				</div>
@@ -28,7 +29,7 @@
 			</form>
 		</div>
 
-		<div class="bg-secondary text-center rounded p-4" style="width: 45%; margin: 8px;">
+		<div class="bg-secondary text-center rounded p-4" style="width: 50%; margin: 8px;">
         <div class="d-flex align-items-center justify-content-between mb-4">
             <h6 class="mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Registro del cliente. </font></font></h6>
             <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mostrar todo</font></font></a>
@@ -38,11 +39,19 @@
                 <thead>
                     <tr class="text-white">
                         <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cliente.</font></font></th>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">#</font></font></th>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nombre.</font></font></th>
                     </tr>
                 </thead>
                 <tbody>
+					{% for vista in vista %}
+						<tr>
+						  <th><a class="form-check-input" type="submit" href="/persona_eliminar/{{ vista.id }}"><i class="fa-solid fa-trash-can"></i></a></th>
+						  <th>{{vista.id_pers}}</th>
+						  <th>{{vista.Nombre_pers}}</th>
+						</tr>
 
+					{% endfor %}
                 </tbody>
             </table>
         </div>
