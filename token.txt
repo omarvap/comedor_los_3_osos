@@ -1,2 +1,18 @@
-------------> token <-----------------
-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
+---------------Token--------------------
+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
+
+
+---Esto es para enviar todos los cambios----
+git add . 
+
+
+---Registra los cambios echos-
+git commit -m "Aca va el titulo del comit"
+
+
+---Subir todos los cambios---
+git push
+
+
+---Hace la sinronizacion de los cambios---
+git pull

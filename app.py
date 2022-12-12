@@ -57,11 +57,35 @@ def usuario():
         usuario = db.execute("SELECT *FROM empleado")
         return render_template("usuario.html",usuario=usuario, vista=vista)
 
+@app.route("/usuario_eliminar/<id>", methods=["GET", "POST"])
+def usuario_eliminar(id):
+    print("hola", id)
+    db.execute("DELETE FROM usuario WHERE id = :id",id=id)
+    return redirect("/usuario")
 
 
-@app.route("/rol")
+@app.route("/rol", methods=["GET", "POST"])
 def rol():
-    return render_template("rol.html")
+    if request.method == "POST":
+        # Estos son los datos para poder registrarse
+        registro = request.form.get("id_user")
+        tipo = request.form.get("Tipo_rol")
+        estado = request.form.get("Estado")
+        db.execute("INSERT INTO rol_usuario(id_user,Tipo_rol, Estado) values(?,?,?)",registro,tipo,estado)
+        return redirect("/rol")
+
+    else:
+        vista = db.execute("SELECT * FROM rol_usuario")
+        print(vista)
+        rolu = db.execute("SELECT *FROM usuario")
+        return render_template("rol.html",rolu=rolu, vista=vista)
+
+
+@app.route("/rol_eliminar/<id>", methods=["GET", "POST"])
+def rol_eliminar(id):
+    print("hola", id)
+    db.execute("DELETE FROM rol_usuario WHERE id = :id",id=id)
+    return redirect("/rol")
 
 @app.route("/clientes", methods=["GET", "POST"])
 def cliente():
@@ -76,6 +100,11 @@ def cliente():
         clientes = db.execute("SELECT *FROM persona")
         return render_template("clientes.html", clientes=clientes, vista=vista)
 
+@app.route("/clientes_eliminar/<id>", methods=["GET", "POST"])
+def clientes_eliminar(id):
+    print("hola", id)
+    db.execute("DELETE FROM clientes WHERE id = :id",id=id)
+    return redirect("/clientes")
 
 @app.route("/empleado", methods=["GET", "POST"])
 def empleado():
@@ -89,6 +118,12 @@ def empleado():
         print(vista)
         empleado = db.execute("SELECT *FROM persona")
         return render_template("empleado.html", empleado=empleado, vista=vista)
+
+@app.route("/empleado_eliminar/<id>", methods=["GET", "POST"])
+def empleado_eliminar(id):
+    print("hola", id)
+    db.execute("DELETE FROM empleado WHERE id = :id",id=id)
+    return redirect("/empleado")
 
 @app.route("/persona", methods=["GET", "POST"])
 def persona():
@@ -113,8 +148,6 @@ def persona_eliminar(id):
     print("hola", id)
     db.execute("DELETE FROM persona WHERE id = :id",id=id)
     return redirect("/persona")
-
-
 
 @app.route("/problema")
 def problema():

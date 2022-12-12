@@ -8,37 +8,33 @@
 			<h3 class="text-center">
 			     Rol del usuario.
 			</h3>
-			<form role="form">
+			<form role="form"  method="POST" action="/rol">
 
                 <div class="row1">
 					<div class="col-md-12">
-						<select name="select" class="btn btn-primary" style="margin-top: 15px;">
+						<select name="id_user" class="btn btn-primary" style="margin-top: 15px;">
 							<option selected>Elija una opción</option>
-							<option value="#"></option>
-							<option value="#"></option>
+							{% for rolu in rolu %}
+								<option value="{{rolu.id}}">{{rolu.id}}</option>
+							{% endfor %}
 						</select>
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-md-12">
-						<select name="select" class="btn btn-primary" style="margin-top: 15px;">
-							<option selected>Elija una opción</option>
-							<option value="#"></option>
-							<option value="#"></option>
-						</select>
-					</div>
+				<div class="form-group">
+
+					<label for="p_nombre">
+						Tipo de rol.
+					</label>
+					<input type="Nombre" class="form-control" id="nombre" name ="Tipo_rol"/>
 				</div>
 
+				<div class="form-group">
 
-				<div class="row">
-					<div class="col-md-12">
-						<select name="select" class="btn btn-primary" style="margin-top: 15px;">
-							<option selected>Elija una opción</option>
-							<option value="#"></option>
-							<option value="#"></option>
-						</select>
-					</div>
+					<label for="p_nombre">
+						Estado del Rol.
+					</label>
+					<input type="Nombre" class="form-control" id="nombre" name ="Estado"/>
 				</div>
 
 				<button type="submit" class="btn btn-primary" style="margin-top: 10px;">
@@ -58,13 +54,19 @@
                     <tr class="text-white">
                         <th scope="col"><input class="form-check-input" type="checkbox"></th>
                         <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Usuario.</font></font></th>
-                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Empleado.</font></font></th>
                         <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tipo de rol.</font></font></th>
                         <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estado.</font></font></th>
                     </tr>
                 </thead>
                 <tbody>
-
+					{% for vista in vista %}
+						<tr>
+							<th><a class="form-check-input" type="submit" href="/rol_eliminar/{{ vista.id }}"><i class="fa-solid fa-trash-can"></i></a></th>
+							<th>{{vista.id_user}}</th>
+							<th>{{vista.Tipo_rol}}</th>
+						    <th>{{vista.Estado}}</th>
+						</tr>
+					{% endfor %}
                 </tbody>
             </table>
         </div>

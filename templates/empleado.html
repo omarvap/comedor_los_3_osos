@@ -39,14 +39,16 @@
                         <th scope="col"><input class="form-check-input" type="checkbox"></th>
                         <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">#</font></font></th>
                         <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nombre.</font></font></th>
+                        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apellido.</font></font></th>
                     </tr>
                 </thead>
                 <tbody>
 					{% for vista in vista %}
 						<tr>
-						  <th><a class="form-check-input" type="submit" href="/persona_eliminar/{{ vista.id }}"><i class="fa-solid fa-trash-can"></i></a></th>
+						  <th><a class="form-check-input" type="submit" href="/empleado_eliminar/{{ vista.id }}"><i class="fa-solid fa-trash-can"></i></a></th>
 						  <th>{{vista.id_pers}}</th>
 						  <th>{{vista.Nombre_pers}}</th>
+						  <th>{{vista.Ape_pers}}</th>
 						</tr>
 
 					{% endfor %}
